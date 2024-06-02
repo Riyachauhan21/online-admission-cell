@@ -1,0 +1,25 @@
+class OnlineAdmission:
+    def __init__(self):
+        self.applicants = {}
+
+    def register_student(self, name, email, password):
+        self.applicants[name] = {"email": email, "password": password}
+
+    def submit_application(self, name, documents):
+        if name in self.applicants:
+            self.applicants[name]["documents"] = documents
+            print("Application submitted successfully.")
+        else:
+            print("Student not registered.")
+
+    def review_application(self, name):
+        if name in self.applicants:
+            print("Application under review.")
+        else:
+            print("Student not registered.")
+
+# Example usage:
+admission_system = OnlineAdmission()
+admission_system.register_student("John Doe", "johndoe@example.com", "password123")
+admission_system.submit_application("John Doe", ["transcript.pdf", "certificate.pdf"])
+admission_system.review_application("John Doe")
